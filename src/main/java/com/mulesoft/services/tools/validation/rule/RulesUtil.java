@@ -1,21 +1,16 @@
 package com.mulesoft.services.tools.validation.rule;
 
-import static com.mulesoft.services.tools.validation.report.MessageConstants.*;
-
-import java.util.ArrayList;
-import java.util.logging.Logger;
-import java.util.stream.Collectors;
-import java.util.List;
-
 import org.jdom2.Document;
 import org.jdom2.Element;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Common methods to obtain rules and nodes.
  *
  */
 public class RulesUtil {
-    private static List<Element> nodes = new ArrayList<>();
 
     /**
      * Returns first level nodes
@@ -24,8 +19,8 @@ public class RulesUtil {
      * @return list of elements
      */
     public static List<Element> getRootNodes(Document document) {
-
-        document.getRootElement().getChildren().forEach(e -> getChildrenNode(e) );
+        List<Element> nodes = new ArrayList<>();
+        document.getRootElement().getChildren().forEach(e -> getChildrenNode(e, nodes) );
         return nodes;
     }
 
@@ -34,10 +29,10 @@ public class RulesUtil {
      *
      * @param element
      */
-    private static void getChildrenNode(Element element) {
+    private static void getChildrenNode(Element element, List<Element> nodes) {
         nodes.add(element);
         if( element.getChildren().size() > 0 )
-            element.getChildren().forEach(e -> getChildrenNode(e));
+            element.getChildren().forEach(e -> getChildrenNode(e, nodes));
     }
 
 }

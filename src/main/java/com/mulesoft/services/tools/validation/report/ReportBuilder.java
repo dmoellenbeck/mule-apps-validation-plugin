@@ -1,13 +1,13 @@
 package com.mulesoft.services.tools.validation.report;
 
+import com.mulesoft.services.tools.validation.domain.Attribute;
+import com.mulesoft.services.tools.validation.domain.Rule;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 import static com.mulesoft.services.tools.validation.report.MessageConstants.*;
-
-import com.mulesoft.services.tools.validation.domain.Attribute;
-import com.mulesoft.services.tools.validation.domain.Rule;
 
 /**
  * Report Builder.

@@ -39,6 +39,34 @@ Each project must have the following plugin configuration in the **pom.xml** fil
 
 Validation Rules are grouped into two main categories: **"Inclusive"** and **"Exclusive"**.
 
+Each **rule** has the following structure:
+
+```xml
+<rule>
+	<id></id>
+	<name></name>
+	<type></type>
+	<node>
+	    <namespace></namespace>
+		<name></name>
+	</node>
+	<inclusive></inclusive>
+	<attributes>
+		<attribute name="" value="" />
+	</attributes>
+</rule>
+```
+
+| Name          | Description                    | Required | Example |
+|---------------|--------------------------------|---------|----------|
+| id | Unique identifier of the rule. | yes | RULE_001 |
+| name | Brief description of the rule. | yes | Credentials and resources should be managed with application properties |
+| type | Scope of the validation rule (configuration or element) | yes | configuration |
+| node/namespace | Specifies the XML node namespace. | yes | context |
+| node/name | Specifies the XML node name. | yes | property-placeholder |
+| inclusive | Specifies if the rule is 'inclusive' or 'exclusive' (true or false). | yes | true |
+| attributes | Collection of attributes that the XML node should or should not have with an specific value| no |  |
+
 ##### Sample Inclusive Rule
 
 ```xml

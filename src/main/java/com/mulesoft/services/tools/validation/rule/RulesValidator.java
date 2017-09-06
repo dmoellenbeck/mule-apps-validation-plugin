@@ -1,19 +1,13 @@
 package com.mulesoft.services.tools.validation.rule;
 
-import com.mulesoft.services.tools.validation.ValidationExecutor;
+import com.mulesoft.services.tools.validation.domain.Rule;
+import org.jdom2.Element;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import static com.mulesoft.services.tools.validation.report.MessageConstants.*;
-import static com.mulesoft.services.tools.validation.report.ReportBuilder.*;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.mulesoft.services.tools.validation.report.MessageConstants;
-import org.jdom2.Element;
-import com.mulesoft.services.tools.validation.domain.Attribute;
-import com.mulesoft.services.tools.validation.domain.Rule;
+import static com.mulesoft.services.tools.validation.report.MessageConstants.*;
+import static com.mulesoft.services.tools.validation.report.ReportBuilder.*;
 
 /**
  * Rules Validator

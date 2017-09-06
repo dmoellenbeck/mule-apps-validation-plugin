@@ -4,9 +4,10 @@ import com.mulesoft.services.tools.validation.domain.Rule;
 import com.mulesoft.services.tools.validation.domain.Rules;
 import com.mulesoft.services.tools.validation.rule.RulesUtil;
 import com.mulesoft.services.tools.validation.rule.RulesValidator;
-import org.jdom2.input.SAXBuilder;
 import org.jdom2.Document;
 import org.jdom2.Element;
+import org.jdom2.input.SAXBuilder;
+
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Unmarshaller;
 import java.io.File;
@@ -14,7 +15,6 @@ import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
 
 /**
  * Executor of the Rules Validation Process.
