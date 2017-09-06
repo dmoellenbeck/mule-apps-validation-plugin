@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rules>
+	<rule>
+		<id>RULE_001</id>
+		<name>Check if APIKit was used to auto-generate the implementation interface</name>
+		<type>configuration</type>
+		<node>
+			<namespace>apikit</namespace>
+			<name>config</name>
+		</node>
+		<inclusive>true</inclusive>
+	</rule>
+	<rule>
+		<id>RULE_002</id>
+		<name>Check if credentials and resources are managed with application properties</name>
+		<type>configuration</type>
+		<node>
+			<namespace>context</namespace>
+			<name>property-placeholder</name>
+		</node>
+		<inclusive>true</inclusive>
+	</rule>
+	<rule>
+		<id>RULE_003</id>
+		<name>Flow names should match the naming convention</name>
+		<type>element</type>
+		<node>
+			<namespace></namespace>
+			<name>flow</name>
+		</node>
+		<inclusive>true</inclusive>
+		<attributes>
+			<attribute name="name" value="^[a-z:\/{}]+(-[a-z]+)*$" />
+		</attributes>
+	</rule>
+	<rule>
+		<id>RULE_004</id>
+		<name>Sub-flow names should match the naming convention</name>
+		<type>element</type>
+		<node>
+			<namespace></namespace>
+			<name>sub-flow</name>
+		</node>
+		<inclusive>true</inclusive>
+		<attributes>
+			<attribute name="name" value="^[a-z:\/{}]+(-[a-z]+)*$" />
+		</attributes>
+	</rule>
+	<rule>
+		<id>RULE_005</id>
+		<name>Check for the definition of Global exception strategies</name>
+		<type>configuration</type>
+		<node>
+			<namespace>apikit</namespace>
+			<name>mapping-exception-strategy</name>
+		</node>
+		<inclusive>true</inclusive>
+	</rule>
+	<rule>
+		<id>RULE_006</id>
+		<name>Session Variables should be avoided</name>
+		<type>element</type>
+		<node>
+			<namespace></namespace>
+			<name>set-session-variable</name>
+		</node>
+		<inclusive>false</inclusive>
+	</rule>
+	<rule>
+		<id>RULE_007</id>
+		<name>in-memory cache should be avoided</name>
+		<type>configuration</type>
+		<node>
+			<namespace></namespace>
+			<name>in-memory-store</name>
+		</node>
+		<inclusive>false</inclusive>
+	</rule>
+	<rule>
+		<id>RULE_08</id>
+		<name>The communication being secured with SSL</name>
+		<type>configuration</type>
+		<node>
+			<namespace>tls</namespace>
+			<name>key-store</name>
+		</node>
+		<inclusive>true</inclusive>
+		<attributes>
+			<attribute name="type" value="jks" />
+		</attributes>
+	</rule>
+	<rule>
+		<id>RULE_009</id>
+		<name>A logging strategy should be used into application flows</name>
+		<type>element</type>
+		<node>
+			<namespace></namespace>
+			<name>logger</name>
+		</node>
+		<inclusive>true</inclusive>
+	</rule>
+	<!--
+	<rule>
+		<id>RULE_010</id>
+		<name>HTTP Status codes have been properly set inside the exception handler</name>
+		<type>configuration</type>
+		<node>
+			<namespace>apikit</namespace>
+			<name>mapping</name>
+		</node>
+		<inclusive>true</inclusive>
+		<attributes>
+			<attribute name="statusCode" value="500" />
+		</attributes>
+	</rule>
+	-->
+</rules>
