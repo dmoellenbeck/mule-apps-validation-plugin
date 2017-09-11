@@ -1,6 +1,6 @@
 # Mule Applications Validation Plugin
 
-Maven plugin for ensuring the consistency of Mule Applications through a set of rules that let you define which elements are allowed or not.
+Maven plugin for ensuring the consistency of Mule Applications through a set of rules that let you define which elements are allowed or not. **This plugin requires Java 8**.
 
 ## Plugin Configuration
 

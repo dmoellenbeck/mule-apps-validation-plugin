@@ -1,4 +1,4 @@
-package com.mulesoft.services.tools.validation.plugin;
+package com.mulesoft.services.tools.validation;
 
 import com.mulesoft.services.tools.validation.ValidationExecutor;
 import com.mulesoft.services.tools.validation.report.MessageConstants;

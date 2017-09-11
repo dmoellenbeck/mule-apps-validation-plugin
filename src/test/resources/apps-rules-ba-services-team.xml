@@ -87,10 +87,24 @@
 		<inclusive>true</inclusive>
 		<attributes>
 			<attribute name="type" value="jks" />
+			<attribute name="path" value="server.jks" />
 		</attributes>
 	</rule>
 	<rule>
-		<id>RULE_009</id>
+		<id>RULE_09</id>
+		<name>HTTP protocol not accepted into HTTP Listener configuration</name>
+		<type>configuration</type>
+		<node>
+			<namespace>http</namespace>
+			<name>listener-config</name>
+		</node>
+		<inclusive>false</inclusive>
+		<attributes>
+			<attribute name="protocol" value="HTTP" />
+		</attributes>
+	</rule>
+	<rule>
+		<id>RULE_010</id>
 		<name>A logging strategy should be used into application flows</name>
 		<type>element</type>
 		<node>
@@ -99,9 +113,8 @@
 		</node>
 		<inclusive>true</inclusive>
 	</rule>
-	<!--
 	<rule>
-		<id>RULE_010</id>
+		<id>RULE_011</id>
 		<name>HTTP Status codes have been properly set inside the exception handler</name>
 		<type>configuration</type>
 		<node>
@@ -113,5 +126,40 @@
 			<attribute name="statusCode" value="500" />
 		</attributes>
 	</rule>
-	-->
+	<rule>
+		<id>RULE_012</id>
+		<name>Use AutoDiscovery to register the app in API manager</name>
+		<type>configuration</type>
+		<node>
+			<namespace>api-platform-gw</namespace>
+			<name>api</name>
+		</node>
+		<inclusive>true</inclusive>
+	</rule>
+	<rule>
+		<id>RULE_013</id>
+		<name>Groovy Component/Transformer is not allowed</name>
+		<type>element</type>
+		<node>
+			<namespace>scripting</namespace>
+			<name>script</name>
+		</node>
+		<inclusive>false</inclusive>
+		<attributes>
+			<attribute name="engine" value="Groovy" />
+		</attributes>
+	</rule>
+	<rule>
+		<id>RULE_014</id>
+		<name>JavaScript Component/Transformer is not allowed</name>
+		<type>element</type>
+		<node>
+			<namespace>scripting</namespace>
+			<name>script</name>
+		</node>
+		<inclusive>false</inclusive>
+		<attributes>
+			<attribute name="engine" value="JavaScript" />
+		</attributes>
+	</rule>
 </rules>

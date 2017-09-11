@@ -1,9 +1,13 @@
 package com.mulesoft.services.tools.validation.rule;
 
+import com.mulesoft.services.tools.validation.domain.Attribute;
 import com.mulesoft.services.tools.validation.domain.Rule;
+import com.sun.org.apache.bcel.internal.generic.LOOKUPSWITCH;
 import org.jdom2.Element;
 
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 import static com.mulesoft.services.tools.validation.report.MessageConstants.*;
@@ -26,10 +30,22 @@ public class RulesValidator {
         List<Element> resultNodes = nodes.stream().filter(element -> element.getNamespacePrefix().equals(rule.getNode().getNamespace()) &&
                 element.getName().equals(rule.getNode().getName())).collect(Collectors.toList());
 
-        if (rule.getInclusive())
+        if ( rule.getAttributes().size() > 0 ) {
+
+            for(Attribute attr : rule.getAttributes()) {
+                if (!attr.getName().equals(NAME)) {
+                    resultNodes = resultNodes.stream().filter(element -> element.getAttributeValue(attr.getName()).equals(attr.getValue())).collect(Collectors.toList());
+                }
+            }
+
+        }
+
+        if (rule.getInclusive()) {
             validateInclusiveRule(rule, resultNodes);
-        else
+        } else {
             validateExclusiveRule(rule, resultNodes);
+        }
+
     }
 
     /**
@@ -40,9 +56,9 @@ public class RulesValidator {
      */
     private static void validateInclusiveRule(Rule rule, List<Element> nodes) {
         if(nodes.size() > 0) {
-            if (rule.getAttributes().isEmpty())
+            if (rule.getAttributes().isEmpty()) {
                 buildNoDetailsMessage(rule, PASS);
-            else {
+            } else {
                 rule.getAttributes().forEach(attr -> {
                     nodes.forEach(node -> {
 
